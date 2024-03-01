@@ -69,12 +69,9 @@ class MainViewController: UIViewController {
     }
     
     func showLoading() {
-        if isLoading {
-            vwLoadingView.isHidden = false
-            aiLoadingActivity.startAnimating()
-        } else {
-            vwLoadingView.isHidden = true
-            aiLoadingActivity.stopAnimating()
+        DispatchQueue.main.async {
+            self.vwLoadingView.isHidden = !self.isLoading
+            self.isLoading ? self.aiLoadingActivity.startAnimating() : self.aiLoadingActivity.stopAnimating()
         }
     }
 }
