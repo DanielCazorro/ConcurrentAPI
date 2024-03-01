@@ -16,13 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
         guard let scene = (scene as? UIWindowScene) else { return }
         
+        // Create the window and navigation controller
         let window = UIWindow(windowScene: scene)
         let navigationController = UINavigationController()
         
+        // Initialize the MainViewWireframe
         let mainViewWireframe = MainViewWireframe()
         
+        // Set the initial view controller as the root view controller of the navigation controller
         navigationController.setViewControllers([mainViewWireframe.viewController], animated: true)
         
+        // Set the window's root view controller and make it visible
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
