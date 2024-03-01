@@ -12,6 +12,12 @@ class MainViewController: UIViewController {
     //MARK: - Properties
     private var viewModel: MainViewModel?
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var tvListOfPersons: UITableView!
+    @IBOutlet weak var vwLoadingView: UIView!
+    @IBOutlet weak var aiLoadingActivity: UIActivityIndicatorView!
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
