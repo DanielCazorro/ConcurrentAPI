@@ -17,6 +17,7 @@
 		2CF68FA22B91C7A100C119A0 /* MainViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF68FA12B91C7A100C119A0 /* MainViewDataManager.swift */; };
 		2CF68FA42B91C7BD00C119A0 /* MainViewApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF68FA32B91C7BD00C119A0 /* MainViewApiClient.swift */; };
 		2CF68FA62B91C7CB00C119A0 /* MainViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF68FA52B91C7CB00C119A0 /* MainViewWireframe.swift */; };
+		2CF68FA92B91D01100C119A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF68FA82B91D01100C119A0 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2CF68FA12B91C7A100C119A0 /* MainViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewDataManager.swift; sourceTree = "<group>"; };
 		2CF68FA32B91C7BD00C119A0 /* MainViewApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewApiClient.swift; sourceTree = "<group>"; };
 		2CF68FA52B91C7CB00C119A0 /* MainViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewWireframe.swift; sourceTree = "<group>"; };
+		2CF68FA82B91D01100C119A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				2CF68F972B91C6C400C119A0 /* App */,
+				2CF68FA72B91CF8D00C119A0 /* Model */,
 				2CF68F982B91C6ED00C119A0 /* UI */,
 				2CF68F8C2B91C5CD00C119A0 /* Assets.xcassets */,
 				2CF68F912B91C5CD00C119A0 /* Info.plist */,
@@ -109,6 +112,14 @@
 				2CF68FA52B91C7CB00C119A0 /* MainViewWireframe.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		2CF68FA72B91CF8D00C119A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CF68FA82B91D01100C119A0 /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 			files = (
 				2CF68FA22B91C7A100C119A0 /* MainViewDataManager.swift in Sources */,
 				2CF68F9D2B91C78700C119A0 /* MainViewController.swift in Sources */,
+				2CF68FA92B91D01100C119A0 /* UserModel.swift in Sources */,
 				2CF68F842B91C5CC00C119A0 /* AppDelegate.swift in Sources */,
 				2CF68FA42B91C7BD00C119A0 /* MainViewApiClient.swift in Sources */,
 				2CF68F862B91C5CC00C119A0 /* SceneDelegate.swift in Sources */,
