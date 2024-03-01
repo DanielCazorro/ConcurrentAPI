@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
 
     //MARK: - Properties
     private var viewModel: MainViewModel?
+    private var isLoading: Bool = true
     
     //MARK: - IBOutlets
     @IBOutlet weak var tvListOfPersons: UITableView!
@@ -20,8 +21,7 @@ class MainViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        showLoading()
     }
 
 
@@ -29,5 +29,14 @@ class MainViewController: UIViewController {
     func set(viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
-
+    
+    func showLoading() {
+        if isLoading {
+            vwLoadingView.isHidden = false
+            aiLoadingActivity.startAnimating()
+        } else {
+            vwLoadingView.isHidden = true
+            aiLoadingActivity.stopAnimating()
+        }
+    }
 }
