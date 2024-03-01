@@ -9,12 +9,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    //MARK: - Properties
+    // MARK: - Properties
     private var viewModel: MainViewModel?
     private var isLoading: Bool = false
     private var names: [String] = []
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var tvListOfPersons: UITableView!
     @IBOutlet weak var vwLoadingView: UIView!
     @IBOutlet weak var aiLoadingActivity: UIActivityIndicatorView!
@@ -31,21 +31,21 @@ class MainViewController: UIViewController {
         viewModel = MainViewModel(dataManager: dataManager)
         
         // Call the method to get user names
-        viewModel?.getUsers { [weak self] names, error in
+        viewModel?.getUsers { [weak self] names in
             guard let self = self else { return }
-            if let error = error {
-                print("Error fetching user names: \(error.localizedDescription)")
-                return
+            
+            // Update names array
+            self.names = names.map { $0.name }
+            
+            // Print the list of user names
+            print("List of user names:")
+            for name in self.names {
+                print("- \(name)")
             }
             
-            if let users = names {
-                // Update names array
-                self.names = users.names.map { $0.name }
-                
-                // Reload table view data on the main thread
-                DispatchQueue.main.async {
-                    self.tvListOfPersons.reloadData()
-                }
+            // Reload table view data on the main thread
+            DispatchQueue.main.async {
+                self.tvListOfPersons.reloadData()
             }
             
             // Hide loading view
@@ -53,7 +53,6 @@ class MainViewController: UIViewController {
             self.showLoading()
         }
     }
-    
     
     // MARK: - Functions
     func set(viewModel: MainViewModel) {
