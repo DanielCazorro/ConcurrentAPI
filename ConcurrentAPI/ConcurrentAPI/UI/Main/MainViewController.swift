@@ -22,6 +22,30 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoading()
+        
+        // Crear una instancia de MainViewModel y asignarla al viewModel
+        let dataManager = MainViewDataManager(apiClient: MainViewApiClient())
+        viewModel = MainViewModel(dataManager: dataManager)
+        
+        // Llamar al método para obtener los nombres de los usuarios
+        viewModel?.getUsers { [weak self] names, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Error fetching user names: \(error.localizedDescription)")
+                return
+            }
+            
+            if let names = names {
+                // Imprimir los nombres de los usuarios por consola
+                for name in names {
+                    print("User Name: \(name.name)")
+                }
+            }
+            
+            // Ocultar la vista de carga
+            self.isLoading = false
+            self.showLoading()
+        }
     }
 
 

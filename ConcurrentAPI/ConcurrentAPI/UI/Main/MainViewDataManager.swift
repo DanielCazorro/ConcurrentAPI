@@ -17,12 +17,12 @@ class MainViewDataManager {
         self.apiClient = apiClient
     }
     
-    func getUsers(completion: @escaping ([Names]?, Error?) -> Void) {
+    func getUsers(completion: @escaping ([Name]?, Error?) -> Void) {
         apiClient.getUsers(completion: completion)
     }
     
     // Método para obtener el apellido de un usuario por su ID
-    func getSurname(for userID: Int, completion: @escaping (Surnames?, Error?) -> Void) {
+    func getSurname(for userID: Int, completion: @escaping (Surname?, Error?) -> Void) {
         apiClient.getSurname(for: userID, completion: completion)
     }
     

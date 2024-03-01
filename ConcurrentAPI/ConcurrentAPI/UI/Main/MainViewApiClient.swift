@@ -11,24 +11,46 @@ class MainViewApiClient {
     let baseURL = "https://mock-movilidad.vass.es/api/formacion/"
     
     // Método para obtener los nombres de los usuarios
-    func getUsers(completion: @escaping ([Names]?, Error?) -> Void) {
+    func getUsers(completion: @escaping ([Name]?, Error?) -> Void) {
         let url = URL(string: baseURL + "names")!
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else {
+            // Verificar si hay algún error al realizar la solicitud
+            if let error = error {
+                print("Error fetching user names: \(error.localizedDescription)")
                 completion(nil, error)
                 return
             }
+            
+            // Verificar si se recibió alguna respuesta del servidor
+            guard let data = data else {
+                print("No data received")
+                completion(nil, nil)
+                return
+            }
+            
+            // Imprimir el tipo de datos recibidos
+            print("Received data type: \(type(of: data))")
+            
+            // Imprimir la respuesta de la API antes de intentar decodificarla
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("Response JSON: \(jsonString)")
+            }
+            
+            // Intentar decodificar los datos recibidos
             do {
-                let names = try JSONDecoder().decode([Names].self, from: data)
+                let names = try JSONDecoder().decode([Name].self, from: data)
                 completion(names, nil)
             } catch {
+                print("Error decoding JSON: \(error.localizedDescription)")
                 completion(nil, error)
             }
         }.resume()
     }
+
+
     
     // Método para obtener el apellido de un usuario por su ID
-    func getSurname(for userID: Int, completion: @escaping (Surnames?, Error?) -> Void) {
+    func getSurname(for userID: Int, completion: @escaping (Surname?, Error?) -> Void) {
         let url = URL(string: baseURL + "surname/\(userID)")!
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else {
@@ -36,7 +58,7 @@ class MainViewApiClient {
                 return
             }
             do {
-                let surname = try JSONDecoder().decode(Surnames.self, from: data)
+                let surname = try JSONDecoder().decode(Surname.self, from: data)
                 completion(surname, nil)
             } catch {
                 completion(nil, error)

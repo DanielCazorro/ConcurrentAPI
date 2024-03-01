@@ -17,12 +17,12 @@ class MainViewModel {
         self.dataManager = dataManager
     }
     
-    func getUsers(completion: @escaping ([Names]?, Error?) -> Void) {
+    func getUsers(completion: @escaping ([Name]?, Error?) -> Void) {
         dataManager.getUsers(completion: completion)
     }
     
     // Método para obtener el apellido de un usuario por su ID
-    func getSurname(for userID: Int, completion: @escaping (Surnames?, Error?) -> Void) {
+    func getSurname(for userID: Int, completion: @escaping (Surname?, Error?) -> Void) {
         dataManager.getSurname(for: userID, completion: completion)
     }
     
