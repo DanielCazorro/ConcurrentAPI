@@ -9,6 +9,9 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    //MARK: - Properties
+    private var viewModel: MainViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +19,9 @@ class MainViewController: UIViewController {
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Functions
+    func set(viewModel: MainViewModel) {
+        self.viewModel = viewModel
     }
-    */
 
 }

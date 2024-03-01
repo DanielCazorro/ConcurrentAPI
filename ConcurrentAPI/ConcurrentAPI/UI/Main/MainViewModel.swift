@@ -9,4 +9,11 @@ import Foundation
 
 class MainViewModel {
     
+    // MARK: - Properties
+    private var dataManager: MainViewDataManager
+    
+    // MARK: - Initializers
+    init(dataManager: MainViewDataManager) {
+        self.dataManager = dataManager
+    }
 }

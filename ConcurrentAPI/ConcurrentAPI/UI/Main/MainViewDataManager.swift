@@ -9,4 +9,11 @@ import Foundation
 
 class MainViewDataManager {
     
+    // MARK: - Properties
+    private var apiClient: MainViewApiClient
+    
+    // MARK: - Initializers
+    init(apiClient: MainViewApiClient) {
+        self.apiClient = apiClient
+    }
 }
