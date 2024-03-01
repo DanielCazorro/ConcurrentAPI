@@ -17,7 +17,7 @@ class MainViewModel {
         self.dataManager = dataManager
     }
     
-    func getUsers(completion: @escaping ([Name]?, Error?) -> Void) {
+    func getUsers(completion: @escaping (Users?, Error?) -> Void) {
         dataManager.getUsers(completion: completion)
     }
     

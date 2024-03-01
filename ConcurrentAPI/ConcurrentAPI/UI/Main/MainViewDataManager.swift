@@ -17,7 +17,7 @@ class MainViewDataManager {
         self.apiClient = apiClient
     }
     
-    func getUsers(completion: @escaping ([Name]?, Error?) -> Void) {
+    func getUsers(completion: @escaping (Users?, Error?) -> Void) {
         apiClient.getUsers(completion: completion)
     }
     

@@ -11,7 +11,7 @@ class MainViewApiClient {
     let baseURL = "https://mock-movilidad.vass.es/api/formacion/"
     
     // Método para obtener los nombres de los usuarios
-    func getUsers(completion: @escaping ([Name]?, Error?) -> Void) {
+    func getUsers(completion: @escaping (Users?, Error?) -> Void) {
         let url = URL(string: baseURL + "names")!
         URLSession.shared.dataTask(with: url) { data, response, error in
             // Verificar si hay algún error al realizar la solicitud
@@ -38,14 +38,15 @@ class MainViewApiClient {
             
             // Intentar decodificar los datos recibidos
             do {
-                let names = try JSONDecoder().decode([Name].self, from: data)
-                completion(names, nil)
+                let users = try JSONDecoder().decode(Users.self, from: data)
+                completion(users, nil)
             } catch {
                 print("Error decoding JSON: \(error.localizedDescription)")
                 completion(nil, error)
             }
         }.resume()
     }
+
 
 
     

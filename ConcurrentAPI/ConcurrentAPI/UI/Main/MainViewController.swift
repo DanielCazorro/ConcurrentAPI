@@ -28,16 +28,16 @@ class MainViewController: UIViewController {
         viewModel = MainViewModel(dataManager: dataManager)
         
         // Llamar al método para obtener los nombres de los usuarios
-        viewModel?.getUsers { [weak self] names, error in
+        viewModel?.getUsers { [weak self] users, error in
             guard let self = self else { return }
             if let error = error {
                 print("Error fetching user names: \(error.localizedDescription)")
                 return
             }
             
-            if let names = names {
+            if let users = users {
                 // Imprimir los nombres de los usuarios por consola
-                for name in names {
+                for name in users.names {
                     print("User Name: \(name.name)")
                 }
             }
